@@ -5,18 +5,32 @@ driver:
 provisioner:
   name: chef_zero
 
+<<<<<<< HEAD
 verifier:
   name: inspec
 
 platforms:
   - name: ubuntu-16.04
   - name: centos-7.2
+=======
+# Uncomment the following verifier to leverage Inspec instead of Busser (the
+# default verifier)
+# verifier:
+#   name: inspec
+
+platforms:
+  - name: ubuntu-14.04
+  - name: centos-7.1
+>>>>>>> bf32f68c34747d90c7a65701f63bc51e0b1120ac
 
 suites:
   - name: default
     run_list:
       - recipe[workstation::default]
+<<<<<<< HEAD
     verifier:
       inspec_tests:
         - test/recipes
+=======
+>>>>>>> bf32f68c34747d90c7a65701f63bc51e0b1120ac
     attributes:
