@@ -16,16 +16,7 @@ package 'git' do
   action :install
 end
 
-file '/etc/motd' do
-content "****************
-This server is the property of Vijay. Please dont delete this instance.
-****************
-  HOSTNAME: #{node['hostname']}
-  IPADDRESS: #{node['ipaddress']}
-  MEMORY: #{node['memory']['total']}
-  CPU: #{node['cpu']['0']['mhz']} 
-"
-  owner 'root'
-  group 'root'
+template '/etc/motd' do
+  source 'motd.erb'
   action :create
 end
