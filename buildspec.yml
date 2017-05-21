@@ -14,7 +14,7 @@ phases:
       - sudo gdebi -n chefdk_1.3.40-1_amd64.deb
       - echo 'eval "$(chef shell-init bash)"' >> ~/.bash_profile
       - source ~/.bash_profile
- pre_ build: #this means test
+ pre_build: #this means test
     commands:
       - echo ===========RUNNING TESTS ===========
       - foodcritic .
