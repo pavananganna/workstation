@@ -1,0 +1,27 @@
+version: 0.1
+
+environment_variables:
+  plaintext:
+    DEBUG: "true"
+            
+phases:
+  install:
+    commands:
+      - echo Install started on `date`
+      - sudo apt-get update -y
+      - sudo apt-get install -y wget gdebi-core
+      - wget https://packages.chef.io/stable/ubuntu/16.04/chefdk_1.3.40-1_amd64.deb
+      - gdebi -n chefdk_1.3.40-1_amd64.deb
+      - echo 'eval "$(chef shell-init bash)"' >> ~/bash_profile
+      - source ~/.bash_profile
+ pre_ build: #this means test
+    commands:
+      - echo ===========RUNNING TESTS ===========
+      - foodcritic .
+      - rubocop -D
+ build:
+    commands:
+      - echo ===========RUNNNING BUILD ==========
+ post_build: # Deploy
+    commands:
+      - echo ===========RUNNING DEPLOY ==========
