@@ -1,12 +1,12 @@
 
-#Installs tree, ntp packages and creates a file in etc folder displaying message of the day
+# Installs tree, ntp packages and creates a file in etc folder displaying message of the day
 #
 
 package 'tree' do
   action :install
 end
 
-package 'vim-enhanced' 
+package 'vim-enhanced'
 
 package 'ntp' do
   action :install
