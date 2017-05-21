@@ -22,6 +22,8 @@ phases:
       - echo $?
       - rubocop -D
       - echo $?
+      - chef exec rspec -cfd
+      - echo $?
   post_build:
     commands:
       - echo ===========RUNNING DEPLOY ==========
