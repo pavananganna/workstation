@@ -12,14 +12,16 @@ phases:
       - sudo apt-get install -y wget gdebi-core git
       - wget https://packages.chef.io/files/stable/chefdk/1.3.40/ubuntu/16.04/chefdk_1.3.40-1_amd64.deb
       - sudo gdebi -n chefdk_1.3.40-1_amd64.deb
-pre_build: #this means test
+pre_build: 
     commands:
       - echo ===========RUNNING TESTS ===========
 build:
     commands:
       - echo ===========RUNNNING BUILD ==========
       - foodcritic .
+      - echo $?
       - rubocop -D
-post_build: # Deploy
+      - echo $?
+post_build:
     commands:
       - echo ===========RUNNING DEPLOY ==========
