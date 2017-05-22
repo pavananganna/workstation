@@ -15,15 +15,15 @@ phases:
   pre_build: 
     commands:
       - echo ===========RUNNING TESTS ===========
-  build:
-    commands:
-      - echo ===========RUNNNING BUILD ==========
       - foodcritic .
       - echo $?
       - rubocop -D
       - echo $?
       - chef exec rspec -cfd
       - echo $?
+  build:
+    commands:
+      - echo ===========RUNNNING BUILD ==========
   post_build:
     commands:
       - echo ===========RUNNING DEPLOY ==========

@@ -1,5 +1,2 @@
 Metrics:
   Enabled: False
-
-Metrics/LineLength:
-  Enabled: False
